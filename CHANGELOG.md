@@ -4,6 +4,8 @@
 
 #### Fixes
 
+* [#1755](https://github.com/ruby-grape/grape/pull/1755): Fix shared params with exactly_one_of - [@milgner](https://github.com/milgner).
+* [#1752](https://github.com/ruby-grape/grape/pull/1752): Fix `include_missing` behavior for aliased parameters - [@jonasoberschweiber](https://github.com/jonasoberschweiber).
 * [#1661](https://github.com/ruby-grape/grape/pull/1661): Handle deeply-nested dependencies correctly - [@rnubel](https://github.com/rnubel), [@jnardone](https://github.com/jnardone).
 * [#1625](https://github.com/ruby-grape/grape/pull/1625): Handle `given` correctly when nested in Array params - [@rnubel](https://github.com/rnubel), [@avellable](https://github.com/avellable).
 

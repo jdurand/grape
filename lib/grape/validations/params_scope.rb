@@ -39,9 +39,8 @@ module Grape
       # @return [Boolean] whether or not this entire scope needs to be
       #   validated
       def should_validate?(parameters)
-        return false if @optional && (params(parameters).blank? ||
-                                       any_element_blank?(parameters))
-
+        return false if @optional && (params(parameters).blank? || all_element_blank?(parameters))
+        return false unless meets_dependency?(params(parameters), parameters)
         return true if parent.nil?
         parent.should_validate?(parameters)
       end
@@ -52,7 +51,7 @@ module Grape
         end
 
         return true unless @dependent_on
-
+        return params.any? { |param| meets_dependency?(param, request_params) } if params.is_a?(Array)
         params = params.with_indifferent_access
 
         @dependent_on.each do |dependency|
